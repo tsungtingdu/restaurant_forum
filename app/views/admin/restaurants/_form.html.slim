@@ -5,24 +5,43 @@
       li
         = msg
 
-= form_for [:admin, @restaurant] do |f|
-  = f.label :name, 'Name'
-  = f.text_field :name
+div class="restaurant_form"
+  div class="form container"
+    = form_for [:admin, @restaurant] do |f|
 
-  = f.label :tel, 'Tel'
-  = f.text_field :tel
+      div class="form-group"    
+        = f.label :name
+        div class="form-control"
+          = f.text_field :name
+      br      
+      div class="form-group"
+        = f.label :tel
+        div class="form-control"
+          = f.text_field :tel
+      br
+      div class="form-group"
+        = f.label :address
+        div class="form-control"        
+         = f.text_field :address
+      br
+      div class="form-group"
+        = f.label :opening_hours
+        div class="form-control"        
+          = f.text_field :opening_hours
+      br
+      div class="form-group"
+        = f.label :description
+        div class="form-control"        
+          = f.text_area :description
+      br
+      div class="form-group"
+        = f.label :image, 'Image'
+        div class="form-control"
+          = image_tag @restaurant.image, width:'300px' if @restaurant.image?
+          = f.file_field :image
+      br
+      = f.submit
+      br
+      br
+= link_to 'Back to index', admin_restaurants_path      
 
-  = f.label :address, 'Address'
-  = f.text_field :address
-
-  = f.label :opening_hours, 'Opening hours'
-  = f.text_field :opening_hours
-
-  = f.label :description, 'Description'
-  = f.text_area :description
-
-  = f.label :image, 'Image'
-  = image_tag @restaurant.image, width:'300px' if @restaurant.image?
-  = f.file_field :image
-
-  = f.submit

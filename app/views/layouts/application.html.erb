@@ -9,17 +9,32 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="header">
+      <% if notice %>
+        <div class="notice"><%= notice %></div>
+      <% else %>  
+        <div class="alert"><%= alert %></div>
+      <% end %>  
+      <% if current_user %>
+        <div class="welcome_message">
+        Hi, <%= current_user.email %>
+        </div>
+        <ul class="login_menu">
+          <li><%= link_to('Log out', destroy_user_session_path, method: :delete) %></li>
+          <li><%= link_to('Edit password', edit_user_registration_path) %></li>
+        </ul>
+      <% else %>
+        <ul class="login_menu">
+          <li><% link_to('Sign up', new_user_registration_path) %></li>
+          <li><% link_to('Sign in', new_user_session_path) %></li>
+        </ul>
+      <% end %>
 
-    <% if current_user %>
-      Hi, <%= current_user.email %>
-      <%= link_to('Log out', destroy_user_session_path, method: :delete) %>
-      <%= link_to('Edit password', edit_user_registration_path) %>
-    <% else %>
-      <% link_to('Sign up', new_user_registration_path) %>
-      <% link_to('Sign in', new_user_session_path) %>
-    <% end %>
-    <%= yield %>      
+    </div>
+    <div class="main_container">
+      <div class="yield_container">
+        <%= yield %>
+      </div>
+    </div>      
   </body>
 </html>
