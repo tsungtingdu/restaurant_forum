@@ -1,0 +1,20 @@
+h1 
+  = @restaurant.name
+
+h4 Opening Hours: 
+p
+  = @restaurant.opening_hours
+
+h4 Tel:
+p
+  = @restaurant.tel
+
+h4 Address:
+p
+  = @restaurant.address
+
+h4 Description:
+p
+  = @restaurant.description
+
+= link_to 'Back to index', admin_restaurant_path  
