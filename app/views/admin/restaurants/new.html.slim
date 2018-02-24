@@ -1,0 +1,24 @@
+- if @restaurant.error.any?
+  h2 There is some errors here:
+  ul
+    - @restaurant.errors.full_messages.each do |msg|
+      li
+        = msg
+
+- form_for [:admin, @restaurant] do |f|
+  = f.lable :name, 'Name'
+  = f.text_field :name
+
+  = f.lable :tel, 'Tel'
+  = f.text_field :tel
+
+  = f.lable :address, 'Address'
+  = f.text_field :address
+
+  = f.lable :opening_hours, 'Opening hours'
+  = f.text_field :opening_hours
+
+  = f.lable :description, 'Description'
+  = f.text_area :description
+
+  = f.submit
