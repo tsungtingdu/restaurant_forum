@@ -11,23 +11,23 @@ div class="restaurant_form"
 
       div class="form-group"    
         = f.label :name
-        input class="form-control" id="restaurant_name" name="restaurant[name]"
+        input class="form-control" id="restaurant_name" name="restaurant[name]" value="#{@restaurant.name}"
 
       div class="form-group"
         = f.label :tel
-        input class="form-control" id="restaurant_tel" name="restaurant[tel]"
+        input class="form-control" id="restaurant_tel" name="restaurant[tel]" value="#{@restaurant.tel}"
 
       div class="form-group"
         = f.label :address       
-        input class="form-control" id="restaurant_address" name="restaurant[address]"
+        input class="form-control" id="restaurant_address" name="restaurant[address]" value="#{@restaurant.address}"
 
       div class="form-group"
         = f.label :opening_hours      
-        input class="form-control" id="restaurant_opening_hours" name="restaurant[opening_hours]"
+        input class="form-control" id="restaurant_opening_hours" name="restaurant[opening_hours]" value="#{@restaurant.opening_hours}"
 
       div class="form-group"
-        = f.label :description       
-        textarea class="form-control" id="restaurant_description" name="restaurant[description]"
+        = f.label :description
+        = f.text_area(:description, class: "form-control", id: "restaurant_description")
 
       div class="form-group"
         = f.label :image, 'Image'
