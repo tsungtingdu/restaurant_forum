@@ -1,5 +1,5 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_admin
+class Admin::CategoriesController < Admin::BaseController
+
   before_action :set_category, only: [:update, :destroy]
 
   def index
@@ -41,14 +41,6 @@ class Admin::CategoriesController < ApplicationController
   end
 
   private
-  
-    def authenticate_admin
-      unless current_user.admin?
-        flash[:alert] = "NOT ALLOW!"
-        redirect_to root_path
-      end  
-    end
-
     def category_params
       params.require(:category).permit(:name)
     end
