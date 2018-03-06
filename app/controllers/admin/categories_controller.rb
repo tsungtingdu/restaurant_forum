@@ -4,6 +4,18 @@ class Admin::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:notice] = "Category was successfully created"
+      redirect_to admin_categories_path
+    else
+      @categories = Categories.all
+      render :index
+    end  
   end
 
   private
@@ -15,4 +27,7 @@ class Admin::CategoriesController < ApplicationController
       end  
     end
 
+    def category_params
+      params.require(:category).permit(:name)
+    end
 end
