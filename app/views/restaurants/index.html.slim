@@ -1,6 +1,15 @@
 h1 Restaurant Front End
 
+br
 
+ul class="nav nav-pills"
+  li role="presentation" class="active"
+    = link_to "All Restaurant", root_path
+    - @categories.each do |category|
+      li role="presentation" class="active"
+        = link_to category.name, category_path(category)
+
+br
 div class="container"
   div class="row"
     - @restaurants.each do |restaurant|
