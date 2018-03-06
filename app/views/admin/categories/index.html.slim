@@ -8,6 +8,7 @@ div class="container"
           tr
             th #
             th Category Name
+            th
         tbody
           - @categories.each do |category|
             tr            
@@ -15,6 +16,8 @@ div class="container"
                 = category.id
               td
                 = category.name
+              td
+                = link_to 'Edit', admin_categories_path(id: category.id)  
 
   div class="form-inline"
     = form_for [:admin, @category] do |f|
