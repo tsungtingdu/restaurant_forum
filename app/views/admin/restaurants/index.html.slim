@@ -29,10 +29,16 @@ table class="table"
         th
           = link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data:{confirm:'Are you sure?'} 
 
+div
+  = link_to 'Restaurant', admin_restaurants_path 
+div
+  = link_to 'Categories', admin_categories_path  
+
+
 
 br
 = paginate @restaurants  
 br
-  
+
 
 
