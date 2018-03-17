@@ -24,6 +24,17 @@ p
 = image_tag @restaurant.image, width:'600px'
 
 
+h4 Comments
+- @restaurant.comments.each do |comment|
+  div
+    h5
+      = comment.user.email.split("@").first
+    p
+      = simple_format comment.content
+    p class="text-muted"
+      em
+        = time_ago_in_words(comment.created_at)
+
 div class="container"
   div class="row"
     = form_for [@restaurant, @comment] do |f|
@@ -32,6 +43,5 @@ div class="container"
       div class="form-group"
         = f.submit class:"btn btn-primary"
         = f.button "Cancel", type: :reset, class:"btn btn-default"
-
 br
 = link_to 'Back to index', restaurants_path  
