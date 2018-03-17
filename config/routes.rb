@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end  
   
   resources :categories, only: :show
-
+  resources :users
+  
   namespace :admin do
     resources :restaurants
     resources :categories
