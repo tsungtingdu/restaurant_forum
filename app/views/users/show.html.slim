@@ -16,4 +16,17 @@ br
 br
 = link_to "Edit your profile", edit_user_path(@user)
 br
-= link_to "Back to index", restaurants_path
+= link_to " Back to index", restaurants_path
+
+h4 Restaurants I reviewed
+
+- @commented_restaurants.each do |restaurant|
+  = link_to restaurant_path(restaurant) do
+    div class="panel panel-info"
+      div class="panel-body"
+        div class="my-restaurant"
+          div
+            = image_tag restaurant.image, class: "img-responsive img-rounded"
+          
+          h5= restaurant.name
+
