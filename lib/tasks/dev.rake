@@ -29,7 +29,8 @@ namespace :dev do
 
     100.times do |i|
       User.create!(email: FFaker::Internet.safe_email, 
-        password: FFaker::Internet.password)        
+        password: FFaker::Internet.password,
+        name: FFaker::Name.name)        
     end
     puts "have created fake users"
     puts "now you have #{User.count} restaurants data"    
