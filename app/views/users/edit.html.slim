@@ -1,0 +1,31 @@
+h1 User Profile
+
+div class="user_form"
+  div class="form container"
+    = form_for [@user] do |f|
+
+      div class="form-group"    
+        = f.label :name
+        input class="form-control" id="user_name" name="user[name]" value="#{@user.name}"
+
+      div class="form-group"
+        = f.label :email
+        input class="form-control" id="user_email" name="user[email]" value="#{@user.email}"
+
+      div class="form-group"
+        = f.label :intro
+        = f.text_area(:intro, class: "form-control", id: "user_intro")
+
+      div class="form-group"
+        = f.label :avatar      
+        input class="form-control" id="user_avatar" name="user[avatar]" value="#{@user.avatar}"
+
+      / div class="form-group"
+      /   = f.label :image, 'Image'
+      /   = image_tag @restaurant.image, width:'300px' if @restaurant.image?
+      /   = f.file_field :image
+
+      = f.submit
+
+br
+= link_to "Back to profile", user_path(@user)
