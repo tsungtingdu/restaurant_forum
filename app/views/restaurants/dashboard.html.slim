@@ -1,0 +1,9 @@
+h1 #{@restaurant.name}'s Dashboard
+
+ul
+  li #{@restaurant.comments.count} comments
+  li Average Price: SGD 100
+  li 100 people favorated this restaurant
+br
+= link_to "Back to restaurant", restaurant_path(@restaurant)
+
