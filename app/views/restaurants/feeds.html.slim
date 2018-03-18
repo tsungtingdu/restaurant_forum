@@ -1,0 +1,43 @@
+h1 New Restaurants and Comments
+
+div class="container"
+  div class="row"
+
+    ul class="nav nav-tabs"
+      li role="presentation"
+        = link_to "Index Page", root_path
+      li role="presentation"
+        = link_to "Latest activities", feeds_restaurants_path
+
+br
+
+div class="container"
+  div class="row"
+    div class="col-md-10 col-md-offset-1"
+      h4 New Restaurants & Comments
+      hr
+      div class="col-md-6"
+        div class="panel panel-default"
+          div class="panel-heading"
+            p New Restaurants
+          div class="panel-body"
+            - @recent_restaurants.each do |restaurant|
+              div
+                h4
+                  = link_to restaurant.name, restaurant_path(restaurant)
+                p
+                  = restaurant.description     
+
+
+      div class="col-md-6"
+        div class="panel panel-default"
+          div class="panel-heading"
+            p New Comments
+          div class="panel-body"
+            - @recent_comments.each do |comment|
+              div
+                h4
+                  = link_to comment.restaurant.name, restaurant_path(comment.restaurant)
+                p
+                  = comment.content
+                p by #{link_to comment.user.name, user_path(comment.user)}      
