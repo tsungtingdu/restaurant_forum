@@ -1,0 +1,4 @@
+- if restaurant.liked?(current_user)
+  = link_to "Unlike", unlike_restaurant_path(restaurant), method: :post, class:"btn btn-danger"
+- else
+  = link_to "Like", like_restaurant_path(restaurant), method: :post, class:"btn btn-success"
