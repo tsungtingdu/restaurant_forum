@@ -11,6 +11,8 @@ div class="container"
               = restaurant.category.name
             p 
               = truncate(restaurant.description, length: 80)
+            p
+              = render partial: "shared/favorite", locals:{restaurant: restaurant}
 
     div class="text-center"
       = paginate @restaurants
