@@ -1,13 +1,24 @@
 h1 Restaurant Front End
 
 br
-
-ul class="nav nav-pills"
-  li role="presentation" class="active"
-    = link_to "All Restaurant", root_path
-    - @categories.each do |category|
+div class="container"
+  div class="row"
+    ul class="nav nav-tabs"
       li role="presentation" class="active"
-        = link_to category.name, category_path(category)
+        = link_to 'Index Page', root_path
+      li role="presentation"
+        = link_to 'Latest activities', feeds_restaurants_path
+
+br
+
+div class="container"
+  div class="row"
+    ul class="nav nav-pills"
+      li role="presentation" class="active"
+        = link_to "All Restaurant", root_path
+        - @categories.each do |category|
+          li role="presentation" class="active"
+            = link_to category.name, category_path(category)
 
 br
 
