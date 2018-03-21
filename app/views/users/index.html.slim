@@ -1,8 +1,26 @@
 h1 User List
 
+
+br
+div class="container"
+  div class="row"
+
+    ul class="nav nav-tabs"
+      li role="presentation"
+        = link_to "Index Page", root_path
+      li role="presentation"
+        = link_to "Latest activities", feeds_restaurants_path
+      li role="presentation"
+        = link_to 'User List', users_path    
+
+br
+= link_to 'Back to index', restaurants_path 
+
 ul 
   - @users.each do |user|
     li
       = user.name
-      = link_to " Follow", followships_path(following_id: user), method: :post
-      = link_to " Unfollow", followship_path(user), method: :delete
+      = render partial: 'shared/follow', locals:{user: user}
+      
+
+ 
