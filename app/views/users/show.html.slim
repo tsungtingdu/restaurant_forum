@@ -17,16 +17,47 @@ br
 = link_to "Edit your profile", edit_user_path(@user)
 br
 = link_to " Back to index", restaurants_path
+br
 
-h4 Restaurants I reviewed
-
-- @commented_restaurants.each do |restaurant|
-  = link_to restaurant_path(restaurant) do
-    div class="panel panel-info"
-      div class="panel-body"
-        div class="my-restaurant"
-          div
-            = image_tag restaurant.image, class: "img-responsive img-rounded"
-          
+div class="container"
+  div class="row"
+    div class="col-sm-3"
+      h4 Restaurants I reviewed
+      - @commented_restaurants.each do |restaurant|
+        = link_to restaurant_path(restaurant) do
+          / div class="panel panel-info"
+          /   div class="panel-body"
+          /     div class="my-restaurant"
+          /       div
+          /         = image_tag restaurant.image, class: "img-responsive img-rounded"
+                
           h5= restaurant.name
-
+   
+    div class="col-sm-3"
+      h4 Restaurants I favorite
+      - @favorited_restaurants.each do |restaurant|
+        = link_to restaurant_path(restaurant) do
+          / div class="panel panel-info"
+          /   div class="panel-body"
+          /     div class="my-restaurant"
+          /       div
+          /         = image_tag restaurant.image, class: "img-responsive img-rounded"
+                
+          h5= restaurant.name
+    
+    div class="col-sm-3"
+      h4 Users I follow
+      - @followings.each do |user|
+          / div class="panel panel-info"
+          /   div class="panel-body"
+          /     div class="my-restaurant"
+          h5 = user.name
+   
+    div class="col-sm-3"
+      h4 Users who follow me
+      - @followers.each do |user|
+          / div class="panel panel-info"
+          /   div class="panel-body"
+          /     div class="my-restaurant"
+          /       div        
+          h5 = user.name
