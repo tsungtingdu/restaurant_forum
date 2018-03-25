@@ -5,9 +5,11 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.notify_comment.subject
   #
-  def notify_comment
-    @greeting = "Hi"
+  default from:'canopus.t@gmail.com' 
 
-    mail to: "to@example.org"
+  def notify_comment(user, comment)
+    @user = user
+    @comment = comment
+    mail(to: @user.email, subject:'Thanks for leaving your comment')
   end
 end

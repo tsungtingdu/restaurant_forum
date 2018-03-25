@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
 
+    UserMailer.notify_comment(@current_user, @comment.content).deliver_now!
+
     redirect_to restaurant_path(@restaurant)
   end
 

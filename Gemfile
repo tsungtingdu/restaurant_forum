@@ -38,6 +38,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :development do
@@ -48,6 +49,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
+  gem "letter_opener"
 end
 
 group :production do
