@@ -20,6 +20,29 @@ class Api::V1::RestaurantsController < ApiController
     end 
   end
 
+  def update
+    @restaurant = Restaurant.find_by(id: params[:id])
+    if @restaurant.update(restaurant_params)
+      render json: {
+        message: "Restaurant has been updated successfully!",
+        result: @restaurant
+      }
+    else
+      render json: {
+        errors: @restaurant.errors
+      }
+    end
+  end
+
+  def destroy
+    @restaurant = Restaurant.find_by(id: params[:id])
+    @restaurant.destroy
+      render json: {
+        message: "Restaurant has been destroyed successfully!",
+    }
+
+  end
+
   private
 
   def restaurant_params
