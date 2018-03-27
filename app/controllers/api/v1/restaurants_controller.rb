@@ -2,7 +2,7 @@ class Api::V1::RestaurantsController < ApiController
 
   def index
     @restaurants = Restaurant.all
-    render json: @restaurants
+    # render json: @restaurants
   end
 
   def create
